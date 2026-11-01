@@ -1,8 +1,8 @@
-# Build Log — 일잘러의 Claude 활용법 v1.0.0
+# Build Log — 일잘러의 Claude 활용법 v1.0.1
 
-- **Date:** 2026-08-29T06:21:05Z
-- **Output:** `일잘러의-Claude-활용법-v1.0.0.epub`
-- **Size:** 103152 bytes
+- **Date:** 2026-11-01T00:08:21Z
+- **Output:** `일잘러의-Claude-활용법-v1.0.1.epub`
+- **Size:** 100654 bytes
 - **Pandoc exit:** 0
 - **epubcheck:** passed
 - **epubcheck strict:** 1
@@ -14,8 +14,8 @@
 - title: 일잘러의 Claude 활용법
 - author: 김상기
 - language: ko
-- version: 1.0.0
-- pub_date: 2026-04-28
+- version: 1.0.1
+- pub_date: 2026-11-01
 - identifier: urn:uuid:92348582-6ebf-480a-918a-c4cad530f5e2
 - license: CC BY-NC-SA 4.0
 - genre: tech-book

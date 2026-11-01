@@ -8,7 +8,12 @@
 
 - **웹 버전**: [GitHub Pages에서 읽기](https://ksangki.github.io/claude-practical-guide/)
 - **오프닝 영상**: [60초 모션그래픽](https://ksangki.github.io/claude-practical-guide/media/opening.mp4) · 웹 버전 첫 화면에도 실려 있다
-- **EPUB**: [`일잘러의-Claude-활용법-v1.0.0.epub`](일잘러의-Claude-활용법-v1.0.0.epub) 다운로드
+- **EPUB**: [`일잘러의-Claude-활용법-v1.0.1.epub`](일잘러의-Claude-활용법-v1.0.1.epub) 다운로드
+
+## 판 이력
+
+- v1.0.1(2026-11-01): 문체 점검 — AI 문체 패턴 186곳 정리, 내용·수치 변경 없음
+- v1.0.0(2026-04-28): 초판
 
 ## 목차
 
