@@ -67,3 +67,25 @@
 - EPUB: book-writer `epub-build/scripts/build_epub.sh`(하네스 v1.11.0)로 빌드. `일잘러의-Claude-활용법-v1.0.1.epub` 100,654바이트, epubcheck 0 치명 / 0 오류 / 0 경고.
 - 웹(`docs/index.html`): v1.0.0의 본문과 목차가 `pandoc --toc --toc-depth=2` 출력과 바이트 단위로 같음을 확인한 뒤, 같은 명령의 출력으로 `<nav id="TOC">` 안쪽과 `<main>` 안쪽만 교체했다. 머리(스타일·hero), 오프닝 영상 블록(`media/opening.mp4`), nav와 main 사이, main 뒤 스크립트는 v1.0.0과 같다.
 - 이전 판 EPUB(`일잘러의-Claude-활용법-v1.0.0.epub`, `docs/epub/` 사본)은 이미 나간 링크를 위해 지우지 않았다.
+
+## v1.0.2 패치 (2026-11-02)
+
+- **무엇:** 표지에 제목·부제·저자 표기를 넣었다. 본문(장 파일 `chapters/*`, 머리말·에필로그)은 바꾸지 않았다.
+- **표지:** 이전 `cover.png`(1600×2560, 남색 바탕에 주황 가로선 두 줄만 있고 글자 없음)를 `cover_art.png`로 남기고, 그 그림 위에 Pillow로 글자를 얹었다. 글꼴은 시스템의 Apple SD Gothic Neo(Heavy·Bold·Medium). 두 주황 선 사이 띠에 제목 두 줄("일잘러의" / "Claude 활용법", "Claude"만 주황 — 덱 표지와 같은 배색)과 부제, 아래 여백에 저자 "김상기". 크기 1600×2560(원본 비율 유지), 67,919바이트. 400px 썸네일에서도 제목·부제·저자가 읽히는 것을 확인했다.
+- **표기 대조:** 제목 "일잘러의 Claude 활용법"은 `04_manuscript.md` 첫 줄 `# 일잘러의 Claude 활용법`·매니페스트 `title`과 글자 단위로 같다(표지에서는 "의" 뒤에서만 줄을 나눔). 부제 "AI로 일하는 방식이 달라진다"는 매니페스트 `subtitle`과 같다. 저자 "김상기"는 매니페스트 `author`·원고 `## 저자`와 같다(표지에서는 자간만 넓힘).
+- **바꾼 곳 (전 → 후):**
+
+| 파일 | 전 | 후 |
+|---|---|---|
+| `cover.png` | 글자 없는 바탕 그림 | 제목·부제·저자를 넣은 표지 (원본은 `cover_art.png`) |
+| `book_manifest.json` | `version` 1.0.1, `pub_date` 2026-11-01 | 1.0.2, 2026-11-02 |
+| `04_manuscript.md` 판권 | 판본 v1.0.1, 발행일 2026-11-01 | 판본 v1.0.2, 발행일 2026-11-02, 판 이력 첫 줄 "v1.0.2(2026-11-02): 표지에 제목·저자 표기 추가, 본문 변경 없음." 추가 |
+| `README.md` | 표지 이미지 없음, EPUB 링크 v1.0.1 | 표지 이미지(`cover.png`), EPUB 링크 v1.0.2, 판 이력 한 줄 추가 |
+| `docs/index.html` | 첫 화면 hero에 표지 없음 | hero 제목 위에 표지(`docs/cover.png`, alt 포함) + `.hero .cover-img` 스타일 한 줄. 판권 절은 pandoc 출력으로 교체 |
+| `deck/slides.py`·`docs/presentation/index.html` | 첫 표지 `art=False`(그림 없음) | 엔진 기본값 `art=True` — 표지 슬라이드 오른쪽에 `../cover.png`, 판 표기 v1.0.2 |
+
+- **근거:** 새 사실·숫자는 없다. 글자는 모두 매니페스트·원고 표제에서 옮겼다. og 메타 태그는 웹·덱 모두 원래 없어 추가하지 않았다.
+- **빌드:** book-writer `epub-build/scripts/build_epub.sh`(하네스 v1.11.0, v1.0.1과 같은 스크립트)로 빌드. `일잘러의-Claude-활용법-v1.0.2.epub` 152,979바이트(표지 PNG가 커진 만큼 늘어남), epubcheck 0 치명 / 0 오류 / 0 경고, 표지 alt 주입됨. `docs/epub/`에도 사본.
+- **웹:** v1.0.1 원고로 `pandoc --toc --toc-depth=2` 출력을 만들어 기존 `docs/index.html`과 바이트 단위로 같게 재현되는 것을 먼저 확인한 뒤, 새 원고 출력으로 `<nav id="TOC">`·`<main>` 안쪽만 교체했다. 차이는 판권 절 3줄뿐이다. 오프닝 영상 블록, 목차 링크 96개, "발표 자료" 링크는 그대로다.
+- **덱:** `python3 deck/slides.py <하네스 site-build/scripts> docs/presentation/index.html`. 변경 전 `slides.py`로 기존 덱이 바이트 단위로 재현되는 것을 먼저 확인했다. 43장, 차이는 표지 그림 figure와 판 표기 2곳.
+- **Playwright(390·1440):** 웹·덱 모두 가로 넘침 0, 이미지 1개씩 모두 로드, 웹은 오프닝 영상·목차·발표 자료 링크 있음.

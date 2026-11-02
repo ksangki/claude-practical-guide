@@ -3,7 +3,7 @@
 사용법: python3 deck/slides.py <엔진 폴더> docs/presentation/index.html
 내용의 출처는 04_manuscript.md(v1.0.1)뿐이다. 제품명·UI 이름·프롬프트는 원고 표기 그대로 옮긴다.
 제품·플랜·모델 상태는 원고가 밝힌 기준 시점(2026년 4월 등)의 것이다.
-원고에 그림이 없어 그림 슬라이드는 없다. 표지 이미지는 글자 없는 바탕 그림이라 덱 표지에는 싣지 않는다(art=False)."""
+원고에 그림이 없어 그림 슬라이드는 없다. 표지 이미지는 v1.0.2부터 제목·저자가 들어간 표지라 덱 표지 오른쪽에 싣는다(docs/cover.png)."""
 import sys, pathlib, html
 sys.path.insert(0, sys.argv[1])
 import deck as D
@@ -28,7 +28,7 @@ D.cover(eyebrow='실무 직장인을 위한 Claude 활용 가이드', title_html
         subtitle='AI로 일하는 방식이 달라진다',
         quote='"의심하되 활용하라"',
         quote_by='— 이 책의 기본 태도',
-        meta='김상기 · 1시간 발표', art=False)
+        meta='김상기 · 1시간 발표')
 
 D.quote("OPENING", "먼저 질문 하나", "도구는 같은데, 결과는 왜 다를까",
         "\"AI를 쓰면 일이 빨라진다는데, <span class='coral-t'>왜 내가 쓰면 별로인 걸까?</span>\"",

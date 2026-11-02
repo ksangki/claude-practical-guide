@@ -3,7 +3,7 @@
   "subtitle": "AI로 일하는 방식이 달라진다",
   "author": "김상기",
   "language": "ko",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "chapters": [
     "머리말",
     "1장. AI 시대, 일하는 방식이 바뀌고 있다",
@@ -21,6 +21,6 @@
     "부록 C. Claude vs 경쟁 모델 비교표",
     "에필로그"
   ],
-  "pub_date": "2026-11-01",
+  "pub_date": "2026-11-02",
   "identifier": "urn:uuid:92348582-6ebf-480a-918a-c4cad530f5e2"
 }
